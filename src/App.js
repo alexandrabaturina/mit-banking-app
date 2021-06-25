@@ -12,7 +12,6 @@ const App = () => {
   const [users, setUsers] = useState([])
 
   const addUser = user => {
-    console.log('User to add', user)
     setUsers([...users, user])
   }
 
@@ -24,7 +23,8 @@ const App = () => {
         <CreateAccount addUser={addUser} />} />
       <Route path="/deposit/" component={Deposit} />
       <Route path="/withdraw/" component={Withdraw} />
-      <Route path="/alldata/" component={AllData} />
+      <Route path="/alldata/" component={() =>
+        <AllData users={users} />} />
     </Router>
   )
 }
