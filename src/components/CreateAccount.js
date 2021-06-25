@@ -16,7 +16,10 @@ const CreateAccount = ({ addUser }) => {
                             email: '',
                             password: '',
                         }}
-                        onSubmit={(values => addUser(values))}>
+                        onSubmit={(values) => {
+                            addUser(values)
+                            alert('Account successfully created!')
+                        }}>
                         {formik => (
                             <Form>
                                 <label className="field" htmlFor="name">Name</label>
