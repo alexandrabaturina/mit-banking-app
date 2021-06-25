@@ -28,9 +28,11 @@ const CreateAccount = ({ addUser }) => {
                             password: '',
                         }}
                         validationSchema={validationSchema}
-                        onSubmit={(values) => {
+                        onSubmit={(values, { setSubmitting, resetForm }) => {
                             addUser(values)
-                            alert('Account successfully created!')
+                            setSubmitting(false)
+                            resetForm()
+                            setTimeout(function () { alert('Account successfully created!'); }, 400);
                         }}>
                         {formik => (
                             <Form>
@@ -63,10 +65,11 @@ const CreateAccount = ({ addUser }) => {
                                     className={formik.errors.password ? "error-highlight" : null} />
                                 {formik.errors.password ?
                                     <div className="validation-error">{formik.errors.password}</div> : null}
-                                <Button type="submit">Create Account</Button>
+                                {!formik.values.name || !formik.values.email || !formik.values.password || formik.errors.password ?
+                                    <Button type="submit" disabled>Create Account</Button> :
+                                    <Button type="submit">Create Account</Button>}
                             </Form>
-                        )
-                        }
+                        )}
                     </Formik>
                 </div>
             </div>
