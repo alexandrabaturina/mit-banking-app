@@ -12,7 +12,9 @@ const validationSchema = Yup.object({
         .required('*Password is required')
 });
 
-const CreateAccount = ({ addUser }) => {
+const CreateAccount = ({ users, addUser }) => {
+
+    const btnText = users.length > 0 ? 'Add Another Account' : 'Create Account'
 
     return (
         <Container>
@@ -66,8 +68,8 @@ const CreateAccount = ({ addUser }) => {
                                 {formik.errors.password ?
                                     <div className="validation-error">{formik.errors.password}</div> : null}
                                 {!formik.values.name || !formik.values.email || !formik.values.password || formik.errors.password ?
-                                    <Button type="submit" disabled>Create Account</Button> :
-                                    <Button type="submit">Create Account</Button>}
+                                    <Button type="submit" disabled>{btnText}</Button> :
+                                    <Button type="submit">{btnText}</Button>}
                             </Form>
                         )}
                     </Formik>

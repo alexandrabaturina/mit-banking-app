@@ -20,7 +20,9 @@ const App = () => {
       <NavBar />
       <Route path="/" exact component={Home} />
       <Route path="/createaccount/" component={() =>
-        <CreateAccount addUser={addUser} />} />
+        <CreateAccount
+          addUser={addUser}
+          users={users} />} />
       <Route path="/deposit/" component={Deposit} />
       <Route path="/withdraw/" component={Withdraw} />
       <Route path="/alldata/" component={() =>
