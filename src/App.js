@@ -10,6 +10,7 @@ import { useState } from 'react'
 const App = () => {
 
   const [users, setUsers] = useState([])
+  const [balance, setBalance] = useState(0)
 
   const addUser = user => {
     setUsers([...users, user])
@@ -23,7 +24,8 @@ const App = () => {
         <CreateAccount
           addUser={addUser}
           users={users} />} />
-      <Route path="/deposit/" component={Deposit} />
+      <Route path="/deposit/" component={() =>
+        <Deposit balance={balance} />} />
       <Route path="/withdraw/" component={Withdraw} />
       <Route path="/alldata/" component={() =>
         <AllData users={users} />} />
