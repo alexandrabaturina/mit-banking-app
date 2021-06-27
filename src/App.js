@@ -16,6 +16,10 @@ const App = () => {
     setUsers([...users, user])
   }
 
+  const addDeposit = sum => {
+    setBalance(balance + sum)
+  }
+
   return (
     <Router>
       <NavBar />
@@ -25,7 +29,9 @@ const App = () => {
           addUser={addUser}
           users={users} />} />
       <Route path="/deposit/" component={() =>
-        <Deposit balance={balance} />} />
+        <Deposit
+          balance={balance}
+          addDeposit={addDeposit} />} />
       <Route path="/withdraw/" component={Withdraw} />
       <Route path="/alldata/" component={() =>
         <AllData users={users} />} />

@@ -1,7 +1,7 @@
 import { Container, Button } from 'react-bootstrap'
 import { Formik, Form, Field } from 'formik'
 
-const Deposit = ({ balance }) => {
+const Deposit = ({ balance, addDeposit }) => {
     return (
         <Container>
             <div className="card text-center">
@@ -15,9 +15,12 @@ const Deposit = ({ balance }) => {
                 </div>
                 <Formik
                     initialValues={{
-                        balance: 0,
+                        balance: balance,
                     }}
                     onSubmit={(values, { setSubmitting, resetForm }) => {
+                        addDeposit(parseFloat(values.deposit))
+                        setSubmitting(false)
+                        resetForm()
                         setTimeout(function () { alert('Deposit successefully added!'); }, 400);
                     }}>
                     {formik => (
@@ -25,7 +28,7 @@ const Deposit = ({ balance }) => {
                             <label className="field" htmlFor="deposit">Deposit Amount</label>
                             <Field
                                 name="deposit"
-                                type="number"
+                                type="text"
                                 onChange={formik.handleChange}
                                 value={formik.values.deposit} />
                             <Button type="submit">Deposit</Button>
