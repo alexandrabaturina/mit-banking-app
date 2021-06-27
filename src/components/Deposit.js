@@ -1,7 +1,15 @@
 import { Container, Button } from 'react-bootstrap'
 import { Formik, Form, Field } from 'formik'
+import * as Yup from 'yup'
+
+const validationSchema = Yup.object({
+    deposit: Yup.number()
+        .typeError('Deposit amount should be a number')
+        .min(0, 'Please deposit a positive amount')
+})
 
 const Deposit = ({ balance, addDeposit }) => {
+
     return (
         <Container>
             <div className="card text-center">
@@ -15,8 +23,9 @@ const Deposit = ({ balance, addDeposit }) => {
                 </div>
                 <Formik
                     initialValues={{
-                        balance: balance,
+                        deposit: ''
                     }}
+                    validationSchema={validationSchema}
                     onSubmit={(values, { setSubmitting, resetForm }) => {
                         addDeposit(parseFloat(values.deposit))
                         setSubmitting(false)
@@ -31,7 +40,11 @@ const Deposit = ({ balance, addDeposit }) => {
                                 type="text"
                                 onChange={formik.handleChange}
                                 value={formik.values.deposit} />
-                            <Button type="submit">Deposit</Button>
+                            {formik.errors.deposit ?
+                                <div className="validation-error">{formik.errors.deposit}</div> : null}
+                            {!formik.values.deposit || formik.errors.deposit ?
+                                <Button type="submit" disabled>Deposit</Button> :
+                                <Button type="submit">Deposit</Button>}
                         </Form>
                     )}
                 </Formik>
