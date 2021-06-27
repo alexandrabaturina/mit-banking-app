@@ -1,7 +1,14 @@
 import { Container, Button } from 'react-bootstrap'
 import { Formik, Form, Field } from 'formik'
+import * as Yup from 'yup'
 
 const Withdraw = ({ balance, withdraw }) => {
+
+    const validationSchema = Yup.object({
+        withdraw: Yup.number()
+            .typeError('Withdraw amount should be a number')
+            .max(balance, 'Overdraft')
+    })
 
     return (
         <Container>
@@ -18,6 +25,7 @@ const Withdraw = ({ balance, withdraw }) => {
                     initialValues={{
                         withdraw: ''
                     }}
+                    validationSchema={validationSchema}
                     onSubmit={(values, { setSubmitting, resetForm }) => {
                         withdraw(parseFloat(values.withdraw))
                         setSubmitting(false)
@@ -32,8 +40,11 @@ const Withdraw = ({ balance, withdraw }) => {
                                 type="text"
                                 onChange={formik.handleChange}
                                 value={formik.values.withdraw} />
-
-                            <Button type="submit">Withdraw</Button>
+                            {formik.errors.withdraw ?
+                                <div className="validation-error">{formik.errors.withdraw}</div> : null}
+                            {!formik.values.withdraw || formik.errors.withdraw ?
+                                <Button type="submit" disabled>Withdraw</Button> :
+                                <Button type="submit">Withdraw</Button>}
                         </Form>
                     )}
                 </Formik>
