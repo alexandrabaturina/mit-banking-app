@@ -20,6 +20,10 @@ const App = () => {
     setBalance(balance + sum)
   }
 
+  const withdraw = sum => {
+    setBalance(balance - sum)
+  }
+
   return (
     <Router>
       <NavBar />
@@ -32,7 +36,10 @@ const App = () => {
         <Deposit
           balance={balance}
           addDeposit={addDeposit} />} />
-      <Route path="/withdraw/" component={Withdraw} />
+      <Route path="/withdraw/" component={() =>
+        <Withdraw
+          balance={balance}
+          withdraw={withdraw} />} />
       <Route path="/alldata/" component={() =>
         <AllData users={users} />} />
     </Router>
