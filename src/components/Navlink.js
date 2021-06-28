@@ -8,6 +8,7 @@ const Navlink = ({ hover, page, link }) => {
             delay={{ show: 150, hide: 100 }}
             overlay={<Tooltip id="bottom-tooltip">{hover}</Tooltip>}>
             <NavLink exact
+                activeClassName="active"
                 to={link}
                 className="navbar-brand">
                 {page}
