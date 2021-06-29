@@ -12,42 +12,43 @@ const Deposit = ({ balance, addDeposit }) => {
 
     return (
         <Container>
-            <div className="card text-center">
-                <div className="card-header">
+            <div className="card text-center border-secondary">
+                <div className="card-header border-secondary">
                     <h5 className="card-title">DEPOSIT</h5>
                 </div>
                 <div className="card-body">
                     <div className="balance">
                         BALANCE: ${balance}
                     </div>
+
+                    <Formik
+                        initialValues={{
+                            deposit: ''
+                        }}
+                        validationSchema={validationSchema}
+                        onSubmit={(values, { setSubmitting, resetForm }) => {
+                            addDeposit(parseFloat(values.deposit))
+                            setSubmitting(false)
+                            resetForm()
+                            setTimeout(function () { alert('Deposit successefully added!'); }, 400);
+                        }}>
+                        {formik => (
+                            <Form>
+                                <label className="field" htmlFor="deposit">Deposit Amount</label>
+                                <Field
+                                    name="deposit"
+                                    type="text"
+                                    onChange={formik.handleChange}
+                                    value={formik.values.deposit} />
+                                {formik.errors.deposit ?
+                                    <div className="validation-error">{formik.errors.deposit}</div> : null}
+                                {!formik.values.deposit || formik.errors.deposit ?
+                                    <Button type="submit" disabled>Deposit</Button> :
+                                    <Button type="submit">Deposit</Button>}
+                            </Form>
+                        )}
+                    </Formik>
                 </div>
-                <Formik
-                    initialValues={{
-                        deposit: ''
-                    }}
-                    validationSchema={validationSchema}
-                    onSubmit={(values, { setSubmitting, resetForm }) => {
-                        addDeposit(parseFloat(values.deposit))
-                        setSubmitting(false)
-                        resetForm()
-                        setTimeout(function () { alert('Deposit successefully added!'); }, 400);
-                    }}>
-                    {formik => (
-                        <Form>
-                            <label className="field" htmlFor="deposit">Deposit Amount</label>
-                            <Field
-                                name="deposit"
-                                type="text"
-                                onChange={formik.handleChange}
-                                value={formik.values.deposit} />
-                            {formik.errors.deposit ?
-                                <div className="validation-error">{formik.errors.deposit}</div> : null}
-                            {!formik.values.deposit || formik.errors.deposit ?
-                                <Button type="submit" disabled>Deposit</Button> :
-                                <Button type="submit">Deposit</Button>}
-                        </Form>
-                    )}
-                </Formik>
             </div>
         </Container>
     )

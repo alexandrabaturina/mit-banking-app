@@ -10,7 +10,7 @@ const validationSchema = Yup.object({
     password: Yup.string()
         .min(8, 'Your password is too short!')
         .required('*Password is required')
-});
+})
 
 const CreateAccount = ({ users, addUser }) => {
 
@@ -18,8 +18,8 @@ const CreateAccount = ({ users, addUser }) => {
 
     return (
         <Container>
-            <div className="card text-center">
-                <div className="card-header">
+            <div className="card text-center border-secondary">
+                <div className="card-header border-secondary">
                     <h5 className="card-title">CREATE ACCOUNT</h5>
                 </div>
                 <div className="card-body">
@@ -67,7 +67,7 @@ const CreateAccount = ({ users, addUser }) => {
                                     className={formik.errors.password ? "error-highlight" : null} />
                                 {formik.errors.password ?
                                     <div className="validation-error">{formik.errors.password}</div> : null}
-                                {!formik.values.name || !formik.values.email || !formik.values.password || formik.errors.password ?
+                                {!formik.values.name || !formik.values.email || !formik.values.password ?
                                     <Button type="submit" disabled>{btnText}</Button> :
                                     <Button type="submit">{btnText}</Button>}
                             </Form>
