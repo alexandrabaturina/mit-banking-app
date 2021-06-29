@@ -19,7 +19,7 @@ const Withdraw = ({ users, withdraw }) => {
                     <h5 className="card-title">WITHDRAW</h5>
                 </div>
                 {users.length === 0 ?
-                    <div>Create account to withdraw money.</div> :
+                    <div className="no-account">Create account to withdraw money.</div> :
                     <div className="card-body">
                         <div className="balance">
                             BALANCE: ${users[users.length - 1].balance}

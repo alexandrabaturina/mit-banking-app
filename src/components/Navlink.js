@@ -1,7 +1,7 @@
 import { Tooltip, OverlayTrigger } from 'react-bootstrap'
 import { NavLink } from 'react-router-dom'
 
-const Navlink = ({ hover, page, link }) => {
+const Navlink = ({ hover, page, link, navClass }) => {
     return (
         <OverlayTrigger
             placement="bottom"
@@ -10,7 +10,7 @@ const Navlink = ({ hover, page, link }) => {
             <NavLink exact
                 activeClassName="active"
                 to={link}
-                className="navbar-brand">
+                className={navClass}>
                 {page}
             </NavLink>
         </OverlayTrigger>

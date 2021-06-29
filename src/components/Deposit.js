@@ -16,7 +16,8 @@ const Deposit = ({ users, addDeposit }) => {
                 <div className="card-header border-secondary">
                     <h5 className="card-title">DEPOSIT</h5>
                 </div>
-                {users.length === 0 ? <div> Create an account to deposit money.</div> :
+                {users.length === 0 ?
+                    <div className="no-account"> Create an account to deposit money.</div> :
                     <div className="card-body">
                         <div className="balance">
                             BALANCE: ${users[users.length - 1].balance}
@@ -33,7 +34,7 @@ const Deposit = ({ users, addDeposit }) => {
                                 addDeposit(parseFloat(values.deposit))
                                 setSubmitting(false)
                                 resetForm()
-                                setTimeout(function () { alert('Deposit successefully added!'); }, 400);
+                                setTimeout(function () { alert('Deposit successefully added!') }, 400)
                             }}>
                             {formik => (
                                 <Form>

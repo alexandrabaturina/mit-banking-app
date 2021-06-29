@@ -3,11 +3,12 @@ import Navlink from './Navlink'
 
 const NavBar = () => {
     return (
-        <nav className="navbar navbar-expand-lg navbar-light bg-light" >
+        <nav className="navbar navbar-expand-lg">
             <Navlink
                 hover="Home"
                 page="Bad Bank"
-                link="/" />
+                link="/"
+                navClass="navbar-brand" />
             <button className="navbar-toggler" type="button" data-toggle="collapse"
                 data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
                 aria-label="Toggle navigation">
@@ -18,19 +19,23 @@ const NavBar = () => {
                     <Navlink
                         page="Create Account"
                         hover="Create an account"
-                        link="/createaccount" />
+                        link="/createaccount"
+                        navClass="nav-item nav-link" />
                     <Navlink
                         page="Deposit"
                         hover="Deposit money"
-                        link="/deposit" />
+                        link="/deposit"
+                        navClass="nav-item nav-link" />
                     <Navlink
                         page="Withdraw"
                         hover="Withdraw money"
-                        link="/withdraw" />
+                        link="/withdraw"
+                        navClass="nav-item nav-link" />
                     <Navlink
                         page="All Data"
                         hover="View all user data"
-                        link="/alldata" />
+                        link="/alldata"
+                        navClass="nav-item nav-link" />
                 </div>
             </div>
         </nav>

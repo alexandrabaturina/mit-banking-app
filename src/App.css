@@ -1,0 +1,132 @@
+root {
+    background-color: #f8f8f5;
+}
+
+img {
+    width: 200px;
+    height: auto;
+}
+
+.card {
+    width: 50%;
+}
+
+.card-header {
+    background-color: #c1dee7;
+}
+
+.card-title {
+    font-weight: bold;
+    font-size: 1.5em;
+}
+
+.all-data-card {
+    width: 100%;
+}
+
+h5.card-title,
+label.field {
+    color: #1a202a;
+}
+
+.balance {
+    font-size: 1.2em;
+    font-weight: bolder;
+}
+
+h5,
+label,
+.navbar > a,
+a.nav-item.nav-link {
+    color: #f8f8f5;
+}
+
+nav {
+    margin-bottom: 50px;
+}
+
+a.nav-item.nav-link:hover,
+.navbar > a:hover {
+    font-weight: bolder;
+}
+
+label {
+    font-weight: bold;
+    text-align: left;
+    margin-top: 20px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+}
+
+input[type=text]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus {
+    border: 2px solid #68417f;
+}
+
+
+button {
+    margin-top: 20px;
+    width: 200px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+.validation-error {
+    color: #bd0113;
+    font-weight: 500;
+    align-self: flex-start;
+}
+
+.error-highlight {
+    border: 1px solid #bd0113;
+}
+
+.active {
+    background-color: #68417f;
+    border-radius: 4px;
+}
+
+.navbar-brand {
+    margin-left: 20px;
+    padding-right: 5px;
+    padding-left: 5px;
+}
+
+.navbar {
+    background-color: #237b90;
+}
+
+.btn-primary {
+    background-color: #237b90;
+    border-color: #237b90;
+}
+
+.btn-primary[disabled] {
+    background-color: #237b90;
+    border-color: #237b90;
+    opacity: 70%;
+}
+
+.btn-primary:hover {
+    background-color:#68417f;
+    border-color: #68417f;
+}
+
+.btn-primary:focus {
+    outline: none;
+    background-color:#68417f;
+    border-color: #68417f;
+    box-shadow: 0 0 0 2px #dab5d7;
+}
+
+.no-account {
+    padding: 20px;
+}
