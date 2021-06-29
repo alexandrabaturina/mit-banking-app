@@ -4,9 +4,11 @@ const AllData = ({ users }) => {
 
     return (
         <Container>
-            <div className="card text-center">
-                <div className="card-body">
+            <div className="card border-secondary text-center all-data-card">
+                <div className="card-header border-secondary">
                     <h5 className="card-title">ALL USER DATA</h5>
+                </div>
+                <div className="card-body">
                     {users.length === 0 ?
                         <p className="card-text">No current users yet.</p> :
                         <table className="table">
@@ -20,7 +22,7 @@ const AllData = ({ users }) => {
                             </thead>
                             <tbody>
                                 {users.map((user, index) => (
-                                    <tr>
+                                    <tr key={index}>
                                         <th scope="row">{index + 1}</th>
                                         <td>{user.name}</td>
                                         <td>{user.email}</td>
