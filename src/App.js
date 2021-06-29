@@ -10,18 +10,22 @@ import { useState } from 'react'
 const App = () => {
 
   const [users, setUsers] = useState([])
-  const [balance, setBalance] = useState(0)
 
-  const addUser = user => {
+  const addUser = ({ name, email, password }) => {
+    const user = { name: name, email: email, password: password, balance: 0 }
     setUsers([...users, user])
   }
 
   const addDeposit = sum => {
-    setBalance(balance + sum)
+    const updated = [...users]
+    users[users.length - 1].balance += sum
+    setUsers(updated)
   }
 
   const withdraw = sum => {
-    setBalance(balance - sum)
+    const updated = [...users]
+    users[users.length - 1].balance -= sum
+    setUsers(updated)
   }
 
   return (
@@ -30,20 +34,19 @@ const App = () => {
       <Route path="/" exact component={Home} />
       <Route path="/createaccount/" component={() =>
         <CreateAccount
-          addUser={addUser}
-          users={users} />} />
+          users={users}
+          addUser={addUser} />} />
       <Route path="/deposit/" component={() =>
         <Deposit
-          balance={balance}
+          users={users}
           addDeposit={addDeposit} />} />
       <Route path="/withdraw/" component={() =>
         <Withdraw
-          balance={balance}
+          users={users}
           withdraw={withdraw} />} />
       <Route path="/alldata/" component={() =>
         <AllData users={users} />} />
     </Router>
   )
 }
-
 export default App
