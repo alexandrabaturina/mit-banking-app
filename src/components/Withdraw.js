@@ -26,6 +26,8 @@ const Withdraw = ({ balance, withdraw }) => {
                             withdraw: ''
                         }}
                         validationSchema={validationSchema}
+                        validateOnChange={false}
+                        validateOnBlur={false}
                         onSubmit={(values, { setSubmitting, resetForm }) => {
                             withdraw(parseFloat(values.withdraw))
                             setSubmitting(false)
@@ -42,7 +44,7 @@ const Withdraw = ({ balance, withdraw }) => {
                                     value={formik.values.withdraw} />
                                 {formik.errors.withdraw ?
                                     <div className="validation-error">{formik.errors.withdraw}</div> : null}
-                                {!formik.values.withdraw || formik.errors.withdraw ?
+                                {!formik.values.withdraw ?
                                     <Button type="submit" disabled>Withdraw</Button> :
                                     <Button type="submit">Withdraw</Button>}
                             </Form>

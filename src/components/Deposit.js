@@ -26,6 +26,8 @@ const Deposit = ({ balance, addDeposit }) => {
                             deposit: ''
                         }}
                         validationSchema={validationSchema}
+                        validateOnChange={false}
+                        validateOnBlur={false}
                         onSubmit={(values, { setSubmitting, resetForm }) => {
                             addDeposit(parseFloat(values.deposit))
                             setSubmitting(false)
@@ -42,7 +44,7 @@ const Deposit = ({ balance, addDeposit }) => {
                                     value={formik.values.deposit} />
                                 {formik.errors.deposit ?
                                     <div className="validation-error">{formik.errors.deposit}</div> : null}
-                                {!formik.values.deposit || formik.errors.deposit ?
+                                {!formik.values.deposit ?
                                     <Button type="submit" disabled>Deposit</Button> :
                                     <Button type="submit">Deposit</Button>}
                             </Form>

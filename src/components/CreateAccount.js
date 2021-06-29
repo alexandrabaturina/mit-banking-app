@@ -30,6 +30,8 @@ const CreateAccount = ({ users, addUser }) => {
                             password: '',
                         }}
                         validationSchema={validationSchema}
+                        validateOnChange={false}
+                        validateOnBlur={false}
                         onSubmit={(values, { setSubmitting, resetForm }) => {
                             addUser(values)
                             setSubmitting(false)
