@@ -1,4 +1,5 @@
 import { Container, Button } from 'react-bootstrap'
+import { Link } from 'react-router-dom'
 import { Formik, Form, Field } from 'formik'
 import * as Yup from 'yup'
 
@@ -17,7 +18,9 @@ const Deposit = ({ users, addDeposit }) => {
                     <h5 className="card-title">DEPOSIT</h5>
                 </div>
                 {users.length === 0 ?
-                    <div className="no-account"> Create an account to deposit money.</div> :
+                    <div className="no-account">
+                        <Link to="/createaccount">Create an account</Link> to deposit money.
+                    </div> :
                     <div className="card-body">
                         <div className="balance">
                             BALANCE: ${users[users.length - 1].balance}

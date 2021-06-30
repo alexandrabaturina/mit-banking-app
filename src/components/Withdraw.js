@@ -1,5 +1,6 @@
 import { Container, Button } from 'react-bootstrap'
 import { Formik, Form, Field } from 'formik'
+import { Link } from 'react-router-dom'
 import * as Yup from 'yup'
 
 const Withdraw = ({ users, withdraw }) => {
@@ -19,7 +20,9 @@ const Withdraw = ({ users, withdraw }) => {
                     <h5 className="card-title">WITHDRAW</h5>
                 </div>
                 {users.length === 0 ?
-                    <div className="no-account">Create an account to withdraw money.</div> :
+                    <div className="no-account">
+                        <Link to="createaccount">Create an account</Link> to withdraw money.
+                    </div> :
                     <div className="card-body">
                         <div className="balance">
                             BALANCE: ${users[users.length - 1].balance}
