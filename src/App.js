@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Route } from 'react-router-dom'
+import { HashRouter, Route } from 'react-router-dom'
 import Home from './components/Home'
 import NavBar from './components/Navbar'
 import CreateAccount from './components/CreateAccount'
@@ -35,7 +35,7 @@ const App = () => {
   }
 
   return (
-    <Router>
+    <HashRouter>
       <NavBar />
       <Route path="/" exact component={Home} />
       <Route path="/createaccount/" component={() =>
@@ -52,7 +52,7 @@ const App = () => {
           withdraw={withdraw} />} />
       <Route path="/alldata/" component={() =>
         <AllData users={users} />} />
-    </Router>
+    </HashRouter>
   )
 }
 export default App
