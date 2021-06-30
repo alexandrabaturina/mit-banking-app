@@ -1,4 +1,4 @@
-import { Container } from 'react-bootstrap'
+import { Container, DropdownButton, Dropdown, Button } from 'react-bootstrap'
 
 const AllData = ({ users }) => {
 
@@ -11,7 +11,7 @@ const AllData = ({ users }) => {
                 <div className="card-body">
                     {users.length === 0 ?
                         <p className="card-text">No current users yet.</p> :
-                        <table className="table">
+                        <table className="table" verticalAlign='middle'>
                             <thead>
                                 <tr>
                                     <th scope="col">#</th>
@@ -24,16 +24,23 @@ const AllData = ({ users }) => {
                             <tbody>
                                 {users.map((user, index) => (
                                     <tr key={index}>
-                                        <th scope="row">{index + 1}</th>
+                                        <td>{index + 1}</td>
                                         <td>{user.name}</td>
                                         <td>{user.email}</td>
                                         <td>{user.password}</td>
-                                        <td>{user.balance}</td>
+                                        <td className="user-balance">
+                                            {user.history.length > 0 ?
+                                                <DropdownButton id="dropdown-item-button" title={user.balance}>
+                                                    {user.history.map((item, index) => (
+                                                        <Dropdown.ItemText key={index + 'i'}>{item}</Dropdown.ItemText>
+                                                    ))}
+                                                </DropdownButton> :
+                                                <Button>{user.balance}</Button>}
+                                        </td>
                                     </tr>
                                 ))}
                             </tbody>
                         </table>}
-
                 </div>
             </div>
         </Container>

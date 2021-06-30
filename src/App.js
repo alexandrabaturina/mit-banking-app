@@ -12,19 +12,21 @@ const App = () => {
   const [users, setUsers] = useState([])
 
   const addUser = ({ name, email, password }) => {
-    const user = { name: name, email: email, password: password, balance: 0 }
+    const user = { name: name, email: email, password: password, balance: 0, history: [] }
     setUsers([...users, user])
   }
 
   const addDeposit = sum => {
     const updated = [...users]
     users[users.length - 1].balance += sum
+    users[users.length - 1].history.push(`Deposit $${sum}`)
     setUsers(updated)
   }
 
   const withdraw = sum => {
     const updated = [...users]
     users[users.length - 1].balance -= sum
+    users[users.length - 1].history.push(`Withdraw $${sum}`)
     setUsers(updated)
   }
 

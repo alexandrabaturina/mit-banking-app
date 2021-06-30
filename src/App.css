@@ -130,3 +130,12 @@ form {
 .no-account {
     padding: 20px;
 }
+
+td {
+    vertical-align: middle;
+}
+
+td.user-balance {
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+}
