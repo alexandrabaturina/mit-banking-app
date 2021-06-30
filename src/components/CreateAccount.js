@@ -42,8 +42,10 @@ const CreateAccount = ({ users, addUser }) => {
                             <Form>
                                 <label className="field" htmlFor="name">Name</label>
                                 <Field
+                                    id="name"
                                     name="name"
                                     type="text"
+                                    autoComplete="current-name"
                                     onChange={formik.handleChange}
                                     value={formik.values.name}
                                     className={formik.errors.name ? "error-highlight" : null} />
@@ -52,8 +54,10 @@ const CreateAccount = ({ users, addUser }) => {
 
                                 <label className="field" htmlFor="name">Email</label>
                                 <Field
+                                    id="email"
                                     name="email"
                                     type="text"
+                                    autoComplete="current-email"
                                     onChange={formik.handleChange}
                                     value={formik.values.email}
                                     className={formik.errors.email ? "error-highlight" : null} />
@@ -62,8 +66,10 @@ const CreateAccount = ({ users, addUser }) => {
 
                                 <label className="field" htmlFor="password">Password</label>
                                 <Field
+                                    id="password"
                                     name="password"
                                     type="password"
+                                    autoComplete="current-password"
                                     onChange={formik.handleChange}
                                     value={formik.values.password}
                                     className={formik.errors.password ? "error-highlight" : null} />

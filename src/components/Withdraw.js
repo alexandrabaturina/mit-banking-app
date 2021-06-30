@@ -45,8 +45,10 @@ const Withdraw = ({ users, withdraw }) => {
                                 <Form>
                                     <label className="field" htmlFor="withdraw">Withdraw Amount</label>
                                     <Field
+                                        id="withdraw"
                                         name="withdraw"
                                         type="text"
+                                        autoComplete="current-withdraw"
                                         onChange={formik.handleChange}
                                         value={formik.values.withdraw} />
                                     {formik.errors.withdraw ?

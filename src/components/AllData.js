@@ -11,7 +11,7 @@ const AllData = ({ users }) => {
                 <div className="card-body">
                     {users.length === 0 ?
                         <p className="card-text">No current users yet.</p> :
-                        <table className="table" verticalAlign='middle'>
+                        <table className="table" verticalalign='middle'>
                             <thead>
                                 <tr>
                                     <th scope="col">#</th>

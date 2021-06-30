@@ -43,10 +43,12 @@ const Deposit = ({ users, addDeposit }) => {
                                 <Form>
                                     <label className="field" htmlFor="deposit">Deposit Amount</label>
                                     <Field
+                                        id="deposit"
                                         name="deposit"
                                         type="text"
                                         onChange={formik.handleChange}
-                                        value={formik.values.deposit} />
+                                        value={formik.values.deposit}
+                                        autoComplete="current-deposit" />
                                     {formik.errors.deposit ?
                                         <div className="validation-error">{formik.errors.deposit}</div> : null}
                                     {!formik.values.deposit ?
