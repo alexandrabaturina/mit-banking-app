@@ -5,11 +5,15 @@ import CreateAccount from './components/CreateAccount'
 import Deposit from './components/Deposit'
 import AllData from './components/AllData'
 import Withdraw from './components/Withdraw'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 const App = () => {
 
   const [users, setUsers] = useState([])
+
+  useEffect(() => {
+    document.title = "Bad Bank App"
+  }, [])
 
   const addUser = ({ name, email, password }) => {
     const user = { name: name, email: email, password: password, balance: 0, history: [] }
