@@ -112,7 +112,7 @@ form {
 .btn-primary[disabled] {
     background-color: #237b90;
     border-color: #237b90;
-    opacity: 70%;
+    opacity: 0.7;
 }
 
 .btn-primary:hover {
