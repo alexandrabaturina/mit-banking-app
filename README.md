@@ -1,13 +1,43 @@
-# Front-End Development With React Capstone: Bad Banking App
+# Front-End Development With React Capstone: Bad Bank
 ## Overview
-The current repo contains **Bad Banking** app which is a site to deposit and withdraw money from your account.
+The current repo contains **Bad Bank** app which is a website to deposit and withdraw money from your account.
 
 This app is build as capstone for [Front-End Development With React](https://executive-ed.xpro.mit.edu/front-end-development-react?utm_source=MITxPROWeb) course provided by MIT xPRO.
 
-In **Bad Banking** app, the following outcomes are addressed:
+In **Bad Bank** app, the following outcomes are addressed:
 * Build and test a [React](https://reactjs.org/) application
 * Design and build UI components using React
 * Deploy a React application using [Amazon Web Services](https://aws.amazon.com/)
+
+## Features
+**Bad Bank** app includes the following functionality:
+1. **Navigation Bar**
+    * Includes ***Create Account***, ***Deposit***, ***Withdraw***, ***All Data***, and ***Home*** pages
+    * Each navigation bar item routes the user to the relevant page
+    * Each navigation bar item is highlight when you are on that page
+    * When your mouse hovers over a navigation bar item, you see a pop up with a description of that page
+2. **Home Page**
+    * Includes bank title, image, and a welcome message
+3. **Create Account Page**
+    * Includes the ***Create Account*** form that has:
+      * ***Name*** input field
+      * ***Email*** input field
+      * ***Password*** input field
+      * ***Create Account*** button
+4. **Create Account Page Functionality**
+    * Success message
+      * Upon clicking the ***Create Account*** button the user sees a success message
+    * ***Add Another Account*** button
+      * Upon clicking the ***Create Account*** button, the user sees ***Add Another Account*** button
+    * Cleared ***Create Account*** form
+       * Clicking the ***Create Account*** button opens a cleared ***Create Account*** form
+    * Name validation
+       * The ***Create Account*** button is disabled if the ***Name*** field is left blank
+    * Email validation
+       * The ***Create Account*** button is disabled if the ***Email*** field is left blank
+    * Password validation
+       * The ***Create Account*** button is disabled if the ***Password*** field is left blank
+       * The user receives an error message if the password is less than 8 characters long 
 
 ## Author
 [Alexandra Baturina](https://www.linkedin.com/in/alexandrabaturina/)
