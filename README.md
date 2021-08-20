@@ -37,7 +37,17 @@ In **Bad Bank** app, the following outcomes are addressed:
        * The ***Create Account*** button is disabled if the ***Email*** field is left blank
     * Password validation
        * The ***Create Account*** button is disabled if the ***Password*** field is left blank
-       * The user receives an error message if the password is less than 8 characters long 
-
+       * The user receives an error message if the password is less than 8 characters long
+  5. **Deposit Page**
+      * Includes the ***Deposit*** form that has:
+         * ***Deposit Amount*** input field
+         * ***Deposit*** button
+         * Balance information that is displayed above the input field
+   6. **Deposit Page Functionality**
+       * Updated balance
+          * When a user deposits, the balance updates
+       * Success message
+          * When a user completes the ***Deposit*** form, they receive a success message confirming their deposit was received
+       * ***Deposit*** button is disabled if nothing is input
 ## Author
 [Alexandra Baturina](https://www.linkedin.com/in/alexandrabaturina/)
