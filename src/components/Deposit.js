@@ -1,15 +1,8 @@
 import { Container, Button } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import { Formik, Form, Field } from 'formik'
-import * as Yup from 'yup'
 
 const Deposit = ({ users, addDeposit }) => {
-
-    const validationSchema = Yup.object({
-        deposit: Yup.number()
-            .typeError('Deposit amount should be a number')
-            .min(0, 'Please deposit a positive amount')
-    })
 
     return (
         <Container>
@@ -30,7 +23,6 @@ const Deposit = ({ users, addDeposit }) => {
                             initialValues={{
                                 deposit: ''
                             }}
-                            validationSchema={validationSchema}
                             validateOnChange={false}
                             validateOnBlur={false}
                             onSubmit={(values, { setSubmitting, resetForm }) => {
@@ -45,12 +37,11 @@ const Deposit = ({ users, addDeposit }) => {
                                     <Field
                                         id="deposit"
                                         name="deposit"
-                                        type="text"
+                                        type="number"
+                                        min="1"
                                         onChange={formik.handleChange}
                                         value={formik.values.deposit}
                                         autoComplete="current-deposit" />
-                                    {formik.errors.deposit ?
-                                        <div className="validation-error">{formik.errors.deposit}</div> : null}
                                     {!formik.values.deposit ?
                                         <Button type="submit" disabled>Deposit</Button> :
                                         <Button type="submit">Deposit</Button>}
