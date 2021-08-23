@@ -9,6 +9,8 @@ In **Bad Bank** app, the following outcomes are addressed:
 * Design and build UI components using React
 * Deploy a React application using [Amazon Web Services](https://aws.amazon.com/)
 
+Verify AWS deployment [here](https://alexandra-baturina-bad-bank.s3.us-west-2.amazonaws.com/index.html).
+
 ## Features
 **Bad Bank** app includes the following functionality:
 1. **Navigation Bar**
@@ -82,6 +84,5 @@ To install dev dependencies, run the following command:
 ```sh
 npm install
 ```
-
 ## Author
 [Alexandra Baturina](https://www.linkedin.com/in/alexandrabaturina/)
