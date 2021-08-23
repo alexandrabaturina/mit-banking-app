@@ -40,7 +40,7 @@ In **Bad Bank** app, the following outcomes are addressed:
        * The user receives an error message if the password is less than 8 characters long
   5. **Deposit Page**
       * Includes the ***Deposit*** form that has:
-         * ***Deposit Amount*** input field
+         * ***Deposit Amount*** number input field
          * ***Deposit*** button
          * Balance information that is displayed above the input field
    6. **Deposit Page Functionality**
@@ -49,5 +49,18 @@ In **Bad Bank** app, the following outcomes are addressed:
        * Success message
           * When a user completes the ***Deposit*** form, they receive a success message confirming their deposit was received
        * ***Deposit*** button is disabled if nothing is input
+   7. **Withdraw Page**
+       * Includes the ***Withdraw*** form that has:
+         * ***Withdraw Amount*** number input field
+         * ***Withdraw*** button
+         * Balance information that is displayed above the input field
+   8. **Withdraw Page Functionality**
+      * Updated balance
+         * When a user completes the ***Withdraw*** form, the number submitted is subtracted from the total balance
+      * Success message
+         * When a user compltes the ***Withdraw*** form, they receive a success message confiming their withdraw was processed
+      * Account overdaraft feature
+         * When a user withdraws a number higher than the account balance, the user recieves an alert message
+      * ***Withdraw*** button is disabled if nothing is input
 ## Author
 [Alexandra Baturina](https://www.linkedin.com/in/alexandrabaturina/)
