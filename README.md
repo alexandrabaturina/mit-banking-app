@@ -72,5 +72,16 @@ In **Bad Bank** app, the following outcomes are addressed:
 
       ![image](https://user-images.githubusercontent.com/53233637/130496288-79864b64-93f5-4c83-839b-23d4a40d1995.png)
 
+## Dev Dependencies
+**Bad Bank** app has the following dev dependencies:
+* [React-Bootstrap](https://react-bootstrap.github.io/) library – to style UI components
+* [Formik](https://formik.org/) library – to manage forms
+* [Yup](https://formik.org/docs/guides/validation) schema builder – to validate forms
+
+To install dev dependencies, run the following command:
+```sh
+npm install
+```
+
 ## Author
 [Alexandra Baturina](https://www.linkedin.com/in/alexandrabaturina/)
