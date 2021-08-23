@@ -7,7 +7,6 @@ const Withdraw = ({ users, withdraw }) => {
 
     const validationSchema = Yup.object({
         withdraw: Yup.number()
-            .typeError('Withdraw amount should be a number')
             .max(users.length === 0 ?
                 0 :
                 users[users.length - 1].balance, 'Overdraft. Please deposit money first.')
@@ -47,7 +46,8 @@ const Withdraw = ({ users, withdraw }) => {
                                     <Field
                                         id="withdraw"
                                         name="withdraw"
-                                        type="text"
+                                        type="number"
+                                        min="1"
                                         autoComplete="current-withdraw"
                                         onChange={formik.handleChange}
                                         value={formik.values.withdraw} />
