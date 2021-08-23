@@ -62,5 +62,15 @@ In **Bad Bank** app, the following outcomes are addressed:
       * Account overdaraft feature
          * When a user withdraws a number higher than the account balance, the user recieves an alert message
       * ***Withdraw*** button is disabled if nothing is input
+   9. **All Data Page Functionality**
+      * User data includes the following information:
+         * Name
+         * Email
+         * Password
+         * Balance
+      * Track user submissions
+
+      ![image](https://user-images.githubusercontent.com/53233637/130496288-79864b64-93f5-4c83-839b-23d4a40d1995.png)
+
 ## Author
 [Alexandra Baturina](https://www.linkedin.com/in/alexandrabaturina/)
