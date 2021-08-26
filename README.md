@@ -84,5 +84,18 @@ To install dev dependencies, run the following command:
 ```sh
 npm install
 ```
+## Getting Started
+To run **Bad Bank** app in dev mode:
+1. Clone this repo.
+2. ``cd`` into project directory.
+3. Install the dependencies by running the following command:
+```sh
+npm install
+```
+4. Start the server by running the following command:
+```sh
+npm start
+```
+The ```http:localhost:3000``` page will be automatically opened in your browser.
 ## Author
 [Alexandra Baturina](https://www.linkedin.com/in/alexandrabaturina/)
