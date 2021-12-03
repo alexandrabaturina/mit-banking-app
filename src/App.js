@@ -16,21 +16,19 @@ const App = () => {
   }, [])
 
   const addUser = ({ name, email, password }) => {
-    const user = { name: name, email: email, password: password, balance: 0, history: [] }
+    const user = { name: name, email: email, password: password, balance: 0 }
     setUsers([...users, user])
   }
 
   const addDeposit = sum => {
     const updated = [...users]
     users[users.length - 1].balance += sum
-    users[users.length - 1].history.push(`Deposit $${sum}`)
     setUsers(updated)
   }
 
   const withdraw = sum => {
     const updated = [...users]
     users[users.length - 1].balance -= sum
-    users[users.length - 1].history.push(`Withdraw $${sum}`)
     setUsers(updated)
   }
 
@@ -55,4 +53,5 @@ const App = () => {
     </HashRouter>
   )
 }
+
 export default App

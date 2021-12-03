@@ -1,4 +1,4 @@
-import { Container, DropdownButton, Dropdown, Button } from 'react-bootstrap'
+import { Container } from 'react-bootstrap'
 
 const AllData = ({ users }) => {
 
@@ -28,15 +28,7 @@ const AllData = ({ users }) => {
                                         <td>{user.name}</td>
                                         <td>{user.email}</td>
                                         <td>{user.password}</td>
-                                        <td className="user-balance">
-                                            {user.history.length > 0 ?
-                                                <DropdownButton id="dropdown-item-button" title={user.balance}>
-                                                    {user.history.map((item, index) => (
-                                                        <Dropdown.ItemText key={index + 'i'}>{item}</Dropdown.ItemText>
-                                                    ))}
-                                                </DropdownButton> :
-                                                <Button>{user.balance}</Button>}
-                                        </td>
+                                        <td>{user.balance}</td>
                                     </tr>
                                 ))}
                             </tbody>
