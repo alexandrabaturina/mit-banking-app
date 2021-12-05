@@ -9,27 +9,38 @@ import { useState, useEffect } from 'react'
 
 const App = () => {
 
-  const [users, setUsers] = useState([])
+  const [users, setUsers] = useState({})
+  const [currentUser, setCurrentUser] = useState('')
 
   useEffect(() => {
     document.title = "Bad Bank App"
   }, [])
 
   const addUser = ({ name, email, password }) => {
-    const user = { name: name, email: email, password: password, balance: 0 }
-    setUsers([...users, user])
+    setUsers(Object.assign(users, {
+      [name]: { name: name, email: email, password: password, balance: 0 }
+    }))
+    setCurrentUser(name)
   }
 
   const addDeposit = sum => {
-    const updated = [...users]
-    users[users.length - 1].balance += sum
-    setUsers(updated)
+    return {
+      ...users,
+      [currentUser]: {
+        ...users[currentUser],
+        balance: users[currentUser].balance += sum
+      }
+    }
   }
 
   const withdraw = sum => {
-    const updated = [...users]
-    users[users.length - 1].balance -= sum
-    setUsers(updated)
+    return {
+      ...users,
+      [currentUser]: {
+        ...users[currentUser],
+        balance: users[currentUser].balance -= sum
+      }
+    }
   }
 
   return (
@@ -43,10 +54,12 @@ const App = () => {
       <Route path="/deposit/" component={() =>
         <Deposit
           users={users}
+          currentUser={currentUser}
           addDeposit={addDeposit} />} />
       <Route path="/withdraw/" component={() =>
         <Withdraw
           users={users}
+          currentUser={currentUser}
           withdraw={withdraw} />} />
       <Route path="/alldata/" component={() =>
         <AllData users={users} />} />
