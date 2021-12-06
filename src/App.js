@@ -18,7 +18,7 @@ const App = () => {
 
   const addUser = ({ name, email, password }) => {
     setUsers(Object.assign(users, {
-      [name]: { name: name, email: email, password: password, balance: 0 }
+      [name]: { name: name, email: email, password: password, balance: 0, history: [] }
     }))
     setCurrentUser(name)
   }
@@ -28,17 +28,20 @@ const App = () => {
       ...users,
       [currentUser]: {
         ...users[currentUser],
-        balance: users[currentUser].balance += sum
+        balance: users[currentUser].balance += sum,
+        history: users[currentUser].history.push({ 'deposit': sum })
       }
     }
   }
+
 
   const withdraw = sum => {
     return {
       ...users,
       [currentUser]: {
         ...users[currentUser],
-        balance: users[currentUser].balance -= sum
+        balance: users[currentUser].balance -= sum,
+        history: users[currentUser].history.push({ 'withdraw': sum })
       }
     }
   }
@@ -54,7 +57,6 @@ const App = () => {
       <Route path="/deposit/" component={() =>
         <Deposit
           users={users}
-          currentUser={currentUser}
           addDeposit={addDeposit} />} />
       <Route path="/withdraw/" component={() =>
         <Withdraw
