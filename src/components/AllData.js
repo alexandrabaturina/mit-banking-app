@@ -1,4 +1,5 @@
 import { Container } from 'react-bootstrap'
+import { Link } from 'react-router-dom'
 
 const AllData = ({ users }) => {
 
@@ -9,8 +10,8 @@ const AllData = ({ users }) => {
                     <h5 className="card-title">ALL USER DATA</h5>
                 </div>
                 <div className="card-body">
-                    {users.length === 0 ?
-                        <p className="card-text">No current users yet.</p> :
+                    {Object.keys(users).length === 0 ?
+                        <p className="card-text">No users yet.</p> :
                         <table className="table" verticalalign='middle'>
                             <thead>
                                 <tr>
@@ -22,13 +23,17 @@ const AllData = ({ users }) => {
                                 </tr>
                             </thead>
                             <tbody>
-                                {users.map((user, index) => (
+                                {Object.keys(users).map((user, index) => (
                                     <tr key={index}>
                                         <td>{index + 1}</td>
-                                        <td>{user.name}</td>
-                                        <td>{user.email}</td>
-                                        <td>{user.password}</td>
-                                        <td>{user.balance}</td>
+                                        <td>
+                                            <Link to={`/users/${users[user].name}`}>
+                                                {users[user].name}
+                                            </Link>
+                                        </td>
+                                        <td>{users[user].email}</td>
+                                        <td>{users[user].password}</td>
+                                        <td>{users[user].balance}</td>
                                     </tr>
                                 ))}
                             </tbody>
