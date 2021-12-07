@@ -1,8 +1,11 @@
 import { Container, Button } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
+import { useState } from 'react'
 import { Formik, Form, Field } from 'formik'
 
-const Deposit = ({ users, addDeposit }) => {
+const Deposit = ({ users, currentUser, addDeposit }) => {
+
+    const [balance, setBalance] = useState(users[currentUser].balance)
 
     return (
         <Container>
@@ -10,13 +13,13 @@ const Deposit = ({ users, addDeposit }) => {
                 <div className="card-header border-secondary">
                     <h5 className="card-title">DEPOSIT</h5>
                 </div>
-                {users.length === 0 ?
+                {Object.keys(users).length === 0 ?
                     <div className="no-account">
                         <Link to="/createaccount">Create an account</Link> to deposit money.
                     </div> :
                     <div className="card-body">
                         <div className="balance">
-                            BALANCE: ${users[users.length - 1].balance}
+                            BALANCE ${balance}
                         </div>
 
                         <Formik
@@ -30,6 +33,7 @@ const Deposit = ({ users, addDeposit }) => {
                                 setSubmitting(false)
                                 resetForm()
                                 setTimeout(function () { alert('Deposit successefully added!') }, 400)
+                                setTimeout(function () { setBalance(balance + parseFloat(values.deposit)) }, 450)
                             }}>
                             {formik => (
                                 <Form>

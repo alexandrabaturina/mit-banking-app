@@ -1,15 +1,18 @@
 import { Container, Button } from 'react-bootstrap'
+import { useState } from 'react'
 import { Formik, Form, Field } from 'formik'
 import { Link } from 'react-router-dom'
 import * as Yup from 'yup'
 
-const Withdraw = ({ users, withdraw }) => {
+const Withdraw = ({ users, currentUser, withdraw }) => {
+
+    const [balance, setBalance] = useState(users[currentUser].balance)
 
     const validationSchema = Yup.object({
         withdraw: Yup.number()
-            .max(users.length === 0 ?
+            .max(Object.keys(users).length === 0 ?
                 0 :
-                users[users.length - 1].balance, 'Overdraft. Please deposit money first.')
+                balance, 'Overdraft. Please deposit money first.')
     })
 
     return (
@@ -18,13 +21,13 @@ const Withdraw = ({ users, withdraw }) => {
                 <div className="card-header border-secondary">
                     <h5 className="card-title">WITHDRAW</h5>
                 </div>
-                {users.length === 0 ?
+                {Object.keys(users).length === 0 ?
                     <div className="no-account">
                         <Link to="createaccount">Create an account</Link> to withdraw money.
                     </div> :
                     <div className="card-body">
                         <div className="balance">
-                            BALANCE: ${users[users.length - 1].balance}
+                            BALANCE: ${users[currentUser].balance}
                         </div>
 
                         <Formik
@@ -38,7 +41,8 @@ const Withdraw = ({ users, withdraw }) => {
                                 withdraw(parseFloat(values.withdraw))
                                 setSubmitting(false)
                                 resetForm()
-                                setTimeout(function () { alert('Money successefully withdrawn!'); }, 400);
+                                setTimeout(function () { alert('Money successefully withdrawn!'); }, 400)
+                                setTimeout(function () { setBalance(balance - parseFloat(values.withdraw)) }, 450)
                             }}>
                             {formik => (
                                 <Form>

@@ -58,6 +58,7 @@ const App = () => {
       <Route path="/deposit/" component={() =>
         <Deposit
           users={users}
+          currentUser={currentUser}
           addDeposit={addDeposit} />} />
       <Route path="/withdraw/" component={() =>
         <Withdraw
