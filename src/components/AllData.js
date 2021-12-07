@@ -10,9 +10,9 @@ const AllData = ({ users }) => {
                     <h5 className="card-title">ALL USER DATA</h5>
                 </div>
                 <div className="card-body">
-                    {Object.keys(users).length === 0 ?
-                        <p className="card-text">No users yet.</p> :
-                        <table className="table" verticalalign='middle'>
+                    {Object.keys(users).length === 0
+                        ? <p className="card-text">No users yet.</p>
+                        : <table className="table" verticalalign='middle'>
                             <thead>
                                 <tr>
                                     <th scope="col">#</th>
