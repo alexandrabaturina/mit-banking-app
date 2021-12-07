@@ -5,6 +5,7 @@ import CreateAccount from './components/CreateAccount'
 import Deposit from './components/Deposit'
 import AllData from './components/AllData'
 import Withdraw from './components/Withdraw'
+import Profile from './components/Profile'
 import { useState, useEffect } from 'react'
 
 const App = () => {
@@ -65,6 +66,8 @@ const App = () => {
           withdraw={withdraw} />} />
       <Route path="/alldata/" component={() =>
         <AllData users={users} />} />
+      <Route path='/users/:username' component={() =>
+        <Profile users={users} />} />
     </HashRouter>
   )
 }
