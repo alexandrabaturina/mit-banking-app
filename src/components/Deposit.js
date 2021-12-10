@@ -1,11 +1,29 @@
+import { UserContext } from './UserContext'
+import { useContext } from 'react'
 import { Container, Button } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
-import { useState } from 'react'
 import { Formik, Form, Field } from 'formik'
 
-const Deposit = ({ users, currentUser, addDeposit }) => {
+const Deposit = () => {
 
-    const [balance, setBalance] = useState(users[currentUser].balance)
+    const [ctx, setCtx] = useContext(UserContext)
+
+    const { users, currentUser } = ctx
+
+    const addDeposit = sum => {
+        setCtx({
+            ...ctx,
+            users: {
+                ...ctx.users,
+                [currentUser]: {
+                    ...ctx.users[currentUser],
+                    balance: ctx.users[currentUser].balance += sum,
+                    history: ctx.users[currentUser].history.concat([{ 'deposit': sum }])
+                }
+            },
+            currentUser: currentUser
+        })
+    }
 
     return (
         <Container>
@@ -19,7 +37,7 @@ const Deposit = ({ users, currentUser, addDeposit }) => {
                     </div> :
                     <div className="card-body">
                         <div className="balance">
-                            BALANCE ${balance}
+                            BALANCE ${users[currentUser].balance}
                         </div>
 
                         <Formik
@@ -33,7 +51,6 @@ const Deposit = ({ users, currentUser, addDeposit }) => {
                                 setSubmitting(false)
                                 resetForm()
                                 setTimeout(function () { alert('Deposit successefully added!') }, 400)
-                                setTimeout(function () { setBalance(balance + parseFloat(values.deposit)) }, 450)
                             }}>
                             {formik => (
                                 <Form>

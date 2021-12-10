@@ -1,8 +1,31 @@
+import { useContext } from 'react'
+import { UserContext } from './UserContext'
 import { Button, Container } from 'react-bootstrap'
 import { Formik, Form, Field } from 'formik'
-import * as Yup from 'yup';
+import * as Yup from 'yup'
 
-const CreateAccount = ({ users, addUser }) => {
+const CreateAccount = () => {
+
+    const [ctx, setCtx] = useContext(UserContext)
+
+    const { users } = ctx
+
+    const addUser = ({ name, email, password }) => {
+        setCtx({
+            ...ctx,
+            users: {
+                ...ctx.users,
+                [name]: {
+                    name: name,
+                    email: email,
+                    password: password,
+                    balance: 0,
+                    history: []
+                }
+            },
+            currentUser: name
+        })
+    }
 
     const validationSchema = Yup.object({
         name: Yup.string()
@@ -14,7 +37,7 @@ const CreateAccount = ({ users, addUser }) => {
             .required('*Password is required')
     })
 
-    const btnText = users.length > 0 ? 'Add Another Account' : 'Create Account'
+    const btnText = Object.keys(users).length > 0 ? 'Add Another Account' : 'Create Account'
 
     return (
         <Container>

@@ -1,9 +1,14 @@
+import { useContext } from 'react'
+import { UserContext } from './UserContext'
 import { Container } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 
-const AllData = ({ users }) => {
+const AllData = () => {
+
+    const users = useContext(UserContext)[0].users
 
     return (
+
         <Container>
             <div className="card border-secondary text-center all-data-card">
                 <div className="card-header border-secondary">

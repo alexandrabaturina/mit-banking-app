@@ -1,6 +1,7 @@
 import { Container } from 'react-bootstrap'
 
 const Home = () => {
+
     return (
         <Container>
             <div className="card border-secondary text-center">

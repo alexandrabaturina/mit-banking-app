@@ -1,18 +1,36 @@
+import { UserContext } from './UserContext'
+import { useContext } from 'react'
 import { Container, Button } from 'react-bootstrap'
-import { useState } from 'react'
 import { Formik, Form, Field } from 'formik'
 import { Link } from 'react-router-dom'
 import * as Yup from 'yup'
 
-const Withdraw = ({ users, currentUser, withdraw }) => {
+const Withdraw = () => {
 
-    const [balance, setBalance] = useState(users[currentUser].balance)
+    const [ctx, setCtx] = useContext(UserContext)
+
+    const { users, currentUser } = ctx
+
+    const withdraw = sum => {
+        setCtx({
+            ...ctx,
+            users: {
+                ...ctx.users,
+                [currentUser]: {
+                    ...ctx.users[currentUser],
+                    balance: ctx.users[currentUser].balance -= sum,
+                    history: ctx.users[currentUser].history.concat([{ 'withdraw': sum }])
+                }
+            },
+            currentUser: currentUser
+        })
+    }
 
     const validationSchema = Yup.object({
         withdraw: Yup.number()
             .max(Object.keys(users).length === 0 ?
                 0 :
-                balance, 'Overdraft. Please deposit money first.')
+                users[currentUser].balance, 'Overdraft. Please deposit money first.')
     })
 
     return (
@@ -42,7 +60,6 @@ const Withdraw = ({ users, currentUser, withdraw }) => {
                                 setSubmitting(false)
                                 resetForm()
                                 setTimeout(function () { alert('Money successefully withdrawn!'); }, 400)
-                                setTimeout(function () { setBalance(balance - parseFloat(values.withdraw)) }, 450)
                             }}>
                             {formik => (
                                 <Form>

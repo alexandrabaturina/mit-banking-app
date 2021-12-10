@@ -1,7 +1,11 @@
+import { UserContext } from './UserContext'
+import { useContext } from 'react'
 import { Container } from 'react-bootstrap'
 import { useParams } from 'react-router'
 
-const Profile = ({ users }) => {
+const Profile = () => {
+
+    const users = useContext(UserContext)[0].users
 
     const { username } = useParams()
 
