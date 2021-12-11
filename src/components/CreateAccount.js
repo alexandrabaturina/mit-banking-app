@@ -29,11 +29,22 @@ const CreateAccount = () => {
 
     const validationSchema = Yup.object({
         name: Yup.string()
+            .test('uniqueness', 'User with this name already exists. Choose another name.',
+                function (value) {
+                    const { path, createError } = this
+                    if (Object.keys(users).includes(value)) {
+                        return createError({
+                            path,
+                            message: 'User with this name already exists. Choose another name.'
+                        })
+                    }
+                    return true
+                })
             .required('*Name is required'),
         email: Yup.string()
             .required('*Email is required'),
         password: Yup.string()
-            .min(8, 'Your password is too short!')
+            .min(8, 'Enter password which is at least 8 characters long.')
             .required('*Password is required')
     })
 
