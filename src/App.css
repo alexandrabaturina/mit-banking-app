@@ -45,11 +45,6 @@ nav {
     margin-bottom: 50px;
 }
 
-a.nav-item.nav-link:hover,
-.navbar > a:hover {
-    font-weight: bolder;
-}
-
 label {
     font-weight: bold;
     text-align: left;

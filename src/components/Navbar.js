@@ -1,44 +1,21 @@
-import React from 'react'
-import Navlink from './Navlink'
+import { Container, Navbar, Nav } from 'react-bootstrap'
+import { Link } from 'react-router-dom'
 
 const NavBar = () => {
     return (
-        <nav className="navbar navbar-expand-lg">
-            <Navlink
-                hover="Home"
-                page="Bad Bank"
-                link="/"
-                navClass="navbar-brand" />
-            <button className="navbar-toggler" type="button" data-toggle="collapse"
-                data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false"
-                aria-label="Toggle navigation">
-                <span className="navbar-toggler-icon"></span>
-            </button>
-            <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
-                <div className="navbar-nav">
-                    <Navlink
-                        page="Create Account"
-                        hover="Create an account"
-                        link="/createaccount"
-                        navClass="nav-item nav-link" />
-                    <Navlink
-                        page="Deposit"
-                        hover="Deposit money"
-                        link="/deposit"
-                        navClass="nav-item nav-link" />
-                    <Navlink
-                        page="Withdraw"
-                        hover="Withdraw money"
-                        link="/withdraw"
-                        navClass="nav-item nav-link" />
-                    <Navlink
-                        page="All Data"
-                        hover="View all user data"
-                        link="/alldata"
-                        navClass="nav-item nav-link" />
-                </div>
-            </div>
-        </nav>
+        <Navbar bg="dark" variant="dark">
+            <Container>
+                <Navbar.Brand as={Link} to="/">
+                    Bad Bank
+                </Navbar.Brand>
+                <Nav className="me-auto">
+                    <Nav.Link as={Link} to="/createaccount">Create Account</Nav.Link>
+                    <Nav.Link as={Link} to="/deposit">Deposit</Nav.Link>
+                    <Nav.Link as={Link} to="/withdraw">Withdraw</Nav.Link>
+                    <Nav.Link as={Link} to="/alldata">All Data</Nav.Link>
+                </Nav>
+            </Container>
+        </Navbar>
     )
 }
 
