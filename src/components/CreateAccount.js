@@ -51,7 +51,9 @@ const CreateAccount = () => {
             .required('*Password is required')
     })
 
-    const btnText = Object.keys(users).length > 0 ? 'Add Another Account' : 'Create Account'
+    const btnText = Object.keys(users).length > 0
+        ? 'Add Another Account'
+        : 'Create Account'
 
     return (
         <Container>
@@ -85,9 +87,12 @@ const CreateAccount = () => {
                                     autoComplete="current-name"
                                     onChange={formik.handleChange}
                                     value={formik.values.name}
-                                    className={formik.errors.name ? "error-highlight" : null} />
-                                {formik.errors.name ?
-                                    <div className="validation-error">{formik.errors.name}</div> : null}
+                                    className={formik.errors.name
+                                        ? "error-highlight"
+                                        : null} />
+                                {formik.errors.name
+                                    ? <div className="validation-error">{formik.errors.name}</div>
+                                    : null}
 
                                 <label className="field" htmlFor="name">Email</label>
                                 <Field
@@ -97,10 +102,12 @@ const CreateAccount = () => {
                                     autoComplete="current-email"
                                     onChange={formik.handleChange}
                                     value={formik.values.email}
-                                    className={formik.errors.email ? "error-highlight" : null} />
-                                {formik.errors.email ?
-                                    <div className="validation-error">{formik.errors.email}</div> : null}
-
+                                    className={formik.errors.email
+                                        ? "error-highlight"
+                                        : null} />
+                                {formik.errors.email
+                                    ? <div className="validation-error">{formik.errors.email}</div>
+                                    : null}
                                 <label className="field" htmlFor="password">Password</label>
                                 <Field
                                     id="password"
@@ -109,12 +116,15 @@ const CreateAccount = () => {
                                     autoComplete="current-password"
                                     onChange={formik.handleChange}
                                     value={formik.values.password}
-                                    className={formik.errors.password ? "error-highlight" : null} />
-                                {formik.errors.password ?
-                                    <div className="validation-error">{formik.errors.password}</div> : null}
-                                {!formik.values.name || !formik.values.email || !formik.values.password ?
-                                    <Button type="submit" disabled>{btnText}</Button> :
-                                    <Button type="submit">{btnText}</Button>}
+                                    className={formik.errors.password
+                                        ? "error-highlight"
+                                        : null} />
+                                {formik.errors.password
+                                    ? <div className="validation-error">{formik.errors.password}</div>
+                                    : null}
+                                {!formik.values.name || !formik.values.email || !formik.values.password
+                                    ? <Button type="submit" disabled>{btnText}</Button>
+                                    : <Button type="submit">{btnText}</Button>}
                             </Form>
                         )}
                     </Formik>

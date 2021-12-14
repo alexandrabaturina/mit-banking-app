@@ -31,11 +31,11 @@ const Deposit = () => {
                 <div className="card-header border-secondary">
                     <h5 className="card-title">DEPOSIT</h5>
                 </div>
-                {Object.keys(users).length === 0 ?
-                    <div className="no-account">
+                {Object.keys(users).length === 0
+                    ? <div className="no-account">
                         <Link to="/createaccount">Create an account</Link> to deposit money.
-                    </div> :
-                    <div className="card-body">
+                    </div>
+                    : <div className="card-body">
                         <div className="balance">
                             BALANCE ${users[currentUser].balance}
                         </div>
@@ -63,9 +63,9 @@ const Deposit = () => {
                                         onChange={formik.handleChange}
                                         value={formik.values.deposit}
                                         autoComplete="current-deposit" />
-                                    {!formik.values.deposit ?
-                                        <Button type="submit" disabled>Deposit</Button> :
-                                        <Button type="submit">Deposit</Button>}
+                                    {!formik.values.deposit
+                                        ? <Button type="submit" disabled>Deposit</Button>
+                                        : <Button type="submit">Deposit</Button>}
                                 </Form>
                             )}
                         </Formik>

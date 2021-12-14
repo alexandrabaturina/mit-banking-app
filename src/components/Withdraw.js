@@ -28,9 +28,9 @@ const Withdraw = () => {
 
     const validationSchema = Yup.object({
         withdraw: Yup.number()
-            .max(Object.keys(users).length === 0 ?
-                0 :
-                users[currentUser].balance, 'Overdraft. Please deposit money first.')
+            .max(Object.keys(users).length === 0
+                ? 0
+                : users[currentUser].balance, 'Overdraft. Please deposit money first.')
     })
 
     return (
@@ -39,11 +39,11 @@ const Withdraw = () => {
                 <div className="card-header border-secondary">
                     <h5 className="card-title">WITHDRAW</h5>
                 </div>
-                {Object.keys(users).length === 0 ?
-                    <div className="no-account">
+                {Object.keys(users).length === 0
+                    ? <div className="no-account">
                         <Link to="createaccount">Create an account</Link> to withdraw money.
-                    </div> :
-                    <div className="card-body">
+                    </div>
+                    : <div className="card-body">
                         <div className="balance">
                             BALANCE: ${users[currentUser].balance}
                         </div>
@@ -59,7 +59,7 @@ const Withdraw = () => {
                                 withdraw(parseFloat(values.withdraw))
                                 setSubmitting(false)
                                 resetForm()
-                                setTimeout(function () { alert('Money successefully withdrawn!'); }, 400)
+                                setTimeout(function () { alert('Money successefully withdrawn!') }, 400)
                             }}>
                             {formik => (
                                 <Form>
@@ -72,11 +72,12 @@ const Withdraw = () => {
                                         autoComplete="current-withdraw"
                                         onChange={formik.handleChange}
                                         value={formik.values.withdraw} />
-                                    {formik.errors.withdraw ?
-                                        <div className="validation-error">{formik.errors.withdraw}</div> : null}
-                                    {!formik.values.withdraw ?
-                                        <Button type="submit" disabled>Withdraw</Button> :
-                                        <Button type="submit">Withdraw</Button>}
+                                    {formik.errors.withdraw
+                                        ? <div className="validation-error">{formik.errors.withdraw}</div>
+                                        : null}
+                                    {!formik.values.withdraw
+                                        ? <Button type="submit" disabled>Withdraw</Button>
+                                        : <Button type="submit">Withdraw</Button>}
                                 </Form>
                             )}
                         </Formik>
