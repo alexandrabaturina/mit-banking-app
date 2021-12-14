@@ -27,6 +27,8 @@ const CreateAccount = () => {
         })
     }
 
+    const emailRegex = /\w+@\w+\.[a-z]{2,4}/
+
     const validationSchema = Yup.object({
         name: Yup.string()
             .test('uniqueness', 'User with this name already exists. Choose another name.',
@@ -42,6 +44,7 @@ const CreateAccount = () => {
                 })
             .required('*Name is required'),
         email: Yup.string()
+            .matches(emailRegex, 'Email format is incorrect.')
             .required('*Email is required'),
         password: Yup.string()
             .min(8, 'Enter password which is at least 8 characters long.')
