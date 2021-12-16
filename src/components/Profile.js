@@ -13,7 +13,7 @@ const Profile = () => {
         <Container>
             {!users[username]
                 ? <div>User {username} does not exist.</div>
-                : <div className="card border-secondary text-center all-data-card">
+                : <div className="card border-secondary text-center">
                     <div className="card-header border-secondary">
                         <h5 className="card-title">Operations of {username}</h5>
                     </div>

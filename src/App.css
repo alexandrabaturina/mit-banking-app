@@ -7,8 +7,13 @@ img {
     height: auto;
 }
 
+.container {
+    display: flex;
+    justify-content: center;
+}
+
 .card {
-    width: 50%;
+    width: 70%;
 }
 
 .card-header {

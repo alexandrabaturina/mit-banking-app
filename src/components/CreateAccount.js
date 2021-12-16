@@ -56,7 +56,7 @@ const CreateAccount = () => {
         : 'Create Account'
 
     return (
-        <Container>
+        <Container className="container">
             <div className="card text-center border-secondary">
                 <div className="card-header border-secondary">
                     <h5 className="card-title">CREATE ACCOUNT</h5>
