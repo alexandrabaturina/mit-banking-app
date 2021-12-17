@@ -56,7 +56,7 @@ const CreateAccount = () => {
         : 'Create Account'
 
     return (
-        <Container className="container">
+        <Container className="center">
             <div className="card text-center border-secondary">
                 <div className="card-header border-secondary">
                     <h5 className="card-title">CREATE ACCOUNT</h5>
@@ -122,9 +122,11 @@ const CreateAccount = () => {
                                 {formik.errors.password
                                     ? <div className="validation-error">{formik.errors.password}</div>
                                     : null}
-                                {!formik.values.name || !formik.values.email || !formik.values.password
-                                    ? <Button type="submit" disabled>{btnText}</Button>
-                                    : <Button type="submit">{btnText}</Button>}
+                                <div className="btn-wrapper">
+                                    {!formik.values.name || !formik.values.email || !formik.values.password
+                                        ? <Button variant="outline-dark" type="submit" disabled>{btnText}</Button>
+                                        : <Button variant="outline-dark" type="submit">{btnText}</Button>}
+                                </div>
                             </Form>
                         )}
                     </Formik>

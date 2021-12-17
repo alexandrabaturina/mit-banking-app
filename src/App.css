@@ -7,23 +7,36 @@ img {
     height: auto;
 }
 
-.container {
+form {
     display: flex;
+    flex-direction: column;
+}
+
+.center {
+    display: flex;
+    flex-direction: row;
     justify-content: center;
 }
 
 .card {
-    width: 70%;
+    width: 50%;
 }
 
 .card-header {
-    background-color: #c1dee7;
+    background-color: #b9cbdd;
 }
 
 .card-title {
     font-weight: bold;
-    font-size: 1.5em;
+    font-size: 2em;
 }
+
+.card-body {
+    margin-left: 30px;
+    margin-right: 30px;
+    margin-bottom: 20px;
+}
+
 
 .all-data-card {
     width: 100%;
@@ -35,19 +48,13 @@ label.field {
 }
 
 .balance {
-    font-size: 1.2em;
+    font-size: 1.4em;
+    color: #032e42;
     font-weight: bolder;
 }
 
-h5,
-label,
-.navbar > a,
-a.nav-item.nav-link {
-    color: #f8f8f5;
-}
-
 nav {
-    margin-bottom: 50px;
+    margin-bottom: 60px;
 }
 
 label {
@@ -56,27 +63,23 @@ label {
     margin-top: 20px;
 }
 
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus,
+input[type="number"]:focus {
+    border: 2px solid #b9cbdd;
+}
+
 input[type="text"],
 input[type="email"],
-input[type="password"] {
+input[type="password"],
+input[type="number"] {
     width: 100%;
 }
 
-input[type=text]:focus,
-input[type="email"]:focus,
-input[type="password"]:focus {
-    border: 2px solid #68417f;
-}
-
-
 button {
-    margin-top: 20px;
+    margin-top: 40px;
     width: 200px;
-}
-
-form {
-    display: flex;
-    flex-direction: column;
 }
 
 .validation-error {
@@ -100,31 +103,9 @@ form {
     padding-left: 5px;
 }
 
-.navbar {
-    background-color: #237b90;
-}
-
-.btn-primary {
-    background-color: #237b90;
-    border-color: #237b90;
-}
-
-.btn-primary[disabled] {
-    background-color: #237b90;
-    border-color: #237b90;
-    opacity: 0.7;
-}
-
-.btn-primary:hover {
-    background-color:#68417f;
-    border-color: #68417f;
-}
-
-.btn-primary:focus {
-    outline: none;
-    background-color:#68417f;
-    border-color: #68417f;
-    box-shadow: 0 0 0 2px #dab5d7;
+.btn-wrapper {
+    display: flex;
+    justify-content: center;
 }
 
 .no-account {

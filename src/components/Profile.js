@@ -10,7 +10,7 @@ const Profile = () => {
     const { username } = useParams()
 
     return (
-        <Container>
+        <Container className="center">
             {!users[username]
                 ? <div>User {username} does not exist.</div>
                 : <div className="card border-secondary text-center">

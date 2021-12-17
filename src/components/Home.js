@@ -3,7 +3,7 @@ import { Container } from 'react-bootstrap'
 const Home = () => {
 
     return (
-        <Container>
+        <Container className="center">
             <div className="card border-secondary text-center">
                 <div className="card-header border-secondary">
                     <h5 className="card-title">WELCOME TO BAD BANK APP</h5>

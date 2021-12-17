@@ -34,7 +34,7 @@ const Withdraw = () => {
     })
 
     return (
-        <Container>
+        <Container className="center">
             <div className="card text-center border-secondary">
                 <div className="card-header border-secondary">
                     <h5 className="card-title">WITHDRAW</h5>
@@ -75,9 +75,11 @@ const Withdraw = () => {
                                     {formik.errors.withdraw
                                         ? <div className="validation-error">{formik.errors.withdraw}</div>
                                         : null}
-                                    {!formik.values.withdraw
-                                        ? <Button type="submit" disabled>Withdraw</Button>
-                                        : <Button type="submit">Withdraw</Button>}
+                                    <div className="btn-wrapper">
+                                        {!formik.values.withdraw
+                                            ? <Button variant="outline-dark" type="submit" disabled>Withdraw</Button>
+                                            : <Button variant="outline-dark" type="submit">Withdraw</Button>}
+                                    </div>
                                 </Form>
                             )}
                         </Formik>

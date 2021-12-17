@@ -26,7 +26,7 @@ const Deposit = () => {
     }
 
     return (
-        <Container>
+        <Container className="center">
             <div className="card text-center border-secondary">
                 <div className="card-header border-secondary">
                     <h5 className="card-title">DEPOSIT</h5>
@@ -63,9 +63,11 @@ const Deposit = () => {
                                         onChange={formik.handleChange}
                                         value={formik.values.deposit}
                                         autoComplete="current-deposit" />
-                                    {!formik.values.deposit
-                                        ? <Button type="submit" disabled>Deposit</Button>
-                                        : <Button type="submit">Deposit</Button>}
+                                    <div className="btn-wrapper">
+                                        {!formik.values.deposit
+                                            ? <Button variant="outline-dark" type="submit" disabled>Deposit</Button>
+                                            : <Button variant="outline-dark" type="submit">Deposit</Button>}
+                                    </div>
                                 </Form>
                             )}
                         </Formik>
