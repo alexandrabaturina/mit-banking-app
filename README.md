@@ -5,9 +5,10 @@ The current repo contains **Bad Bank** app which is a website to deposit and wit
 This app is build as capstone for [Front-End Development With React](https://executive-ed.xpro.mit.edu/front-end-development-react?utm_source=MITxPROWeb) course provided by MIT xPRO.
 
 In **Bad Bank** app, the following outcomes are addressed:
-* Build and test a [React](https://reactjs.org/) application
-* Design and build UI components using React
-* Deploy a React application using [Amazon Web Services](https://aws.amazon.com/)
+* Build a [React](https://reactjs.org/) application.
+* Design and build UI components using React.
+* Use [Context API](https://reactjs.org/docs/context.html) in React.
+* Deploy a React application using [Amazon Web Services](https://aws.amazon.com/).
 
 Verify AWS deployment [here](https://alexandra-baturina-bad-bank.s3.us-west-2.amazonaws.com/index.html).
 
