@@ -71,9 +71,7 @@ Verify AWS deployment [here](https://alexandra-baturina-bad-bank.s3.us-west-2.am
          * Email
          * Password
          * Balance
-      * Track user submissions
-
-      ![image](https://user-images.githubusercontent.com/53233637/130496288-79864b64-93f5-4c83-839b-23d4a40d1995.png)
+      * A link to user profile
 
 ## Dev Dependencies
 **Bad Bank** app has the following dev dependencies:
