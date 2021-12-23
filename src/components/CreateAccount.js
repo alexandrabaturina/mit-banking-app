@@ -27,7 +27,7 @@ const CreateAccount = () => {
         })
     }
 
-    const emailRegex = /\w+@\w+\.[a-z]{2,4}/
+    const emailRegex = /\w+@\w+\.[a-z]{2,4}$/
 
     const validationSchema = Yup.object({
         name: Yup.string()
