@@ -69,7 +69,11 @@ Verify AWS deployment [here](https://alexandra-baturina-bad-bank.s3.us-west-2.am
    * Password
    * Balance
    * A link to corresponding profile page.
-
+### Profile Page
+* Includes the following information about the corresponding user:
+  * History of operations
+  * Balance
+* *User does not exist* message displays if user does not exist.
 ## Dev Dependencies
 **Bad Bank** app has the following dev dependencies:
 * [React-Bootstrap](https://react-bootstrap.github.io/) library – to style UI components
