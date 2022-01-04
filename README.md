@@ -10,7 +10,7 @@ In **Bad Bank** app, the following outcomes are addressed:
 * Use [Context API](https://reactjs.org/docs/context.html) in React.
 * Deploy a React application using [Amazon Web Services](https://aws.amazon.com/).
 
-Verify AWS deployment [here](https://alexandra-baturina-bad-bank.s3.us-west-2.amazonaws.com/index.html).
+Verify AWS deployment [here](https://bad-bank-app.s3.us-west-2.amazonaws.com/index.html).
 
 ## Features
 ### Navigation Bar
