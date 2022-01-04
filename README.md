@@ -16,8 +16,10 @@ Verify AWS deployment [here](https://alexandra-baturina-bad-bank.s3.us-west-2.am
 ### Navigation Bar
 * Includes ***Create Account***, ***Deposit***, ***Withdraw***, ***All Data***, and ***Home*** pages.
 * Each navigation bar item routes the user to the relevant page.
+![image](https://user-images.githubusercontent.com/53233637/148109389-792088f8-3e0a-44f2-a927-faca9427ab9e.png)
 ### Home Page
 * Includes bank title, image, and a welcome message.
+![image](https://user-images.githubusercontent.com/53233637/148109639-a4699850-c21f-4b0f-98ee-9101460ce311.png)
 ### Create Account Page
 * The page includes the ***Create Account*** form that has the following elements.
   * ***Name*** input field.
@@ -37,7 +39,8 @@ Verify AWS deployment [here](https://alexandra-baturina-bad-bank.s3.us-west-2.am
     * The user receives an error message if:
       * username is not unique within a session;
       * email does not meet basic requirements (domain or @ missed etc.);
-      * password is less than 8 characters long.
+      * password is less than 8 characters long. 
+![image](https://user-images.githubusercontent.com/53233637/148110419-a148fa59-cd43-4ae0-bb1c-1457a078eea9.png)
 ### Deposit Page
 * Includes the ***Deposit*** form that has the following elements.
    * ***Deposit Amount*** number input field.
@@ -49,6 +52,7 @@ Verify AWS deployment [here](https://alexandra-baturina-bad-bank.s3.us-west-2.am
     * Success message.
        * When a user completes the ***Deposit*** form, they receive a success message confirming their deposit was received.
     * ***Deposit*** button is disabled if nothing is input.
+![image](https://user-images.githubusercontent.com/53233637/148110147-b6042eb9-f840-42b1-ba8d-153dc6f6af03.png)
 ### Withdraw Page
 * The page includes the ***Withdraw*** form that has the following elements.
    * ***Withdraw Amount*** number input field.
@@ -62,6 +66,7 @@ Verify AWS deployment [here](https://alexandra-baturina-bad-bank.s3.us-west-2.am
       * Account overdaraft feature.
          * When a user withdraws a number higher than the account balance, the user recieves an alert message.
       * ***Withdraw*** button is disabled if nothing is input.
+![image](https://user-images.githubusercontent.com/53233637/148110214-21ec9cee-a0ac-496f-b340-34e8ca5cd1cb.png)
 ### All Data Page
 * Includes the following information about each user:
    * Name
@@ -69,11 +74,13 @@ Verify AWS deployment [here](https://alexandra-baturina-bad-bank.s3.us-west-2.am
    * Password
    * Balance
    * A link to corresponding profile page.
+![image](https://user-images.githubusercontent.com/53233637/148109709-58464782-b581-4676-bbdf-eaa227992865.png)
 ### Profile Page
 * Includes the following information about the corresponding user:
   * History of operations
   * Balance
 * *User does not exist* message displays if user does not exist.
+![image](https://user-images.githubusercontent.com/53233637/148109770-0ec37bc7-3abf-4f2d-b2b3-7cc8e89e6da8.png)
 ## Dev Dependencies
 **Bad Bank** app has the following dev dependencies:
 * [React-Bootstrap](https://react-bootstrap.github.io/) library – to style UI components
